@@ -1,6 +1,8 @@
-![AWS Logo](https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg) 
+<div style="text-align: center;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS Logo" width="200"/>
 
 # AWS Lambda Data Sync
+</div>
 
 ### Project Overview
 **aws-lambda-data-sync** is an automated data processing pipeline designed for e-commerce applications. It triggers whenever new transaction data is uploaded to a designated S3 bucket, enabling real-time data aggregation and reporting. This project leverages AWS services such as Lambda, DynamoDB, RDS, and SNS to efficiently manage data aggregation, logging, error handling, and client notifications in a fully automated workflow.
