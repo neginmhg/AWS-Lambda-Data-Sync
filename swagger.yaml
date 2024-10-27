@@ -1,0 +1,132 @@
+openapi: 3.0.0
+info:
+  title: AWS Lambda Data Sync API
+  version: 1.0.0
+  description: API for uploading transaction files and retrieving aggregated transaction data in an e-commerce system.
+servers:
+  - url: http://127.0.0.1:8000
+
+paths:
+  /api/transactions/upload:
+    post:
+      summary: Upload Transaction File
+      operationId: uploadTransactionFile
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: File uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '500':
+          description: Error occurred during file upload
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+
+  /api/transactions:
+    get:
+      summary: Get Aggregated Transaction Data
+      operationId: getAggregatedTransactions
+      responses:
+        '200':
+          description: A list of aggregated transactions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    product_name:
+                      type: string
+                    quantity:
+                      type: integer
+                    amount:
+                      type: number
+                      format: double
+                    revenue:
+                      type: number
+                      format: double
+                    file_name:
+                      type: string
+
+  /api/transactions/summary:
+    get:
+      summary: Get Transaction Summary
+      operationId: getTransactionSummary
+      parameters:
+        - name: start_date
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: product_category
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A summary of transactions based on filters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  summary:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        product_name:
+                          type: string
+                        total_quantity:
+                          type: integer
+                        total_revenue:
+                          type: number
+                          format: double
+
+  /api/errors:
+    get:
+      summary: Get Error Logs
+      operationId: getErrorLogs
+      responses:
+        '200':
+          description: A list of error logs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    error_message:
+                      type: string
+                    timestamp:
+                      type: string
+                      format: date-time

@@ -1,0 +1,47 @@
+{
+  "AWSTemplateFormatVersion": "2024-10-25",
+
+  "Description": "SNS topic and Subscription Test",
+
+  "Metadata": {},
+
+  "Parameters": {
+     "SubscriptionEmail": {
+       "Type": "String",
+       "Default": "negin_mahrang@yahoo.com",
+       "Description": "Enter the email to Subscribe the Notifications.",
+       "MinLength": "13",
+       "MaxLength": "50"},
+
+     "DeploymentStage": {
+       "Type": "String",
+       "Default": "dev",
+       "AllowedValues": ["dev", "test", "prod"],
+       "Description": "Enter Deployment Stage of the project"},
+
+    "TestForLength": {
+      "Type": "Number",
+      "Description": "Enter any number between 5 and 10",
+      "MinValue": "5",
+      "MaxValue": "10"
+    }
+
+  },
+
+  "Resources": {
+    "SNSTopic": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "DisplayName": {"Fn::Sub": ["Demo SNS ${Stage} Notification", {"Stage": {"Ref": "DeploymentStage"}}]},
+        "TopicName": {"Fn::Sub": ["demo-${Stage}-notification", {"Stage": {"Ref": "DeploymentStage"}}]},
+        "Subscription": [{"Endpoint": {"Ref": "SubscriptionEmail"}, "Protocol": "email"}],
+        "Tags": [{"Key": "Project", "Value": "sale-summarize"}, {"Key": "Application", "Value": "sns"}]
+      }
+    }
+  },
+
+  "Outputs": {
+    "SNSArn": {"Description": "SNS Topic ARN", "Value": {"Ref": "SNSTopic"}},
+    "SNSTopicName": {"Description": "SNS Topic Name", "Value": {"Fn::GetAtt" : ["SNSTopic" , "TopicName"]}}
+  }
+}
