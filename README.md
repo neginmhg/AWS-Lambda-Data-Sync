@@ -1,7 +1,7 @@
 <div style="text-align: center;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS Logo" width="200"/>
     <img src="https://api.nuget.org/v3-flatcontainer/langchain/0.15.2/icon" alt="LangChain Logo" width="200"/>
-    <img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" alt="fastapi Logo" width="200"/>
+    <img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" alt="fastapi Logo" width="500"/>
     <h1>AWS Lambda Data Sync and LangChain</h1>
 </div>
 
