@@ -1,8 +1,10 @@
 <div style="text-align: center;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS Logo" width="200"/>
-
-# AWS Lambda Data Sync
+    <img src="https://api.nuget.org/v3-flatcontainer/langchain/0.15.2/icon" alt="LangChain Logo" width="200"/>
+    <h1>AWS Lambda Data Sync and LangChain</h1>
 </div>
+
+
 
 ### Project Overview
 **aws-lambda-data-sync** is an automated data processing pipeline designed for e-commerce applications. It triggers whenever new transaction data is uploaded to a designated S3 bucket, enabling real-time data aggregation and reporting. This project leverages AWS services such as Lambda, DynamoDB, RDS, and SNS to efficiently manage data aggregation, logging, error handling, and client notifications in a fully automated workflow.
@@ -100,6 +102,11 @@ The following API endpoints are available for interacting with the e-commerce da
 - **Description**: Retrieves error logs from DynamoDB to help diagnose processing issues.
 - **Response**: Returns a list of error logs with details.
 
+### 5. *POST Natural Language Queries*
+
+- **Endpoint**: POST `/api/queries`
+- **Description**: Allows users to query the database using natural language. The system interprets the natural language query and converts it into a structured SQL query to retrieve relevant data.
+- **Response**: Returns a JSON object containing the results of the query, including details like product name, quantity, amount, and revenue.
 ---
 
 ## Usage
