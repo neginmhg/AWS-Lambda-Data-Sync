@@ -25,6 +25,7 @@
 3. **RDS Database**: Stores the aggregated transaction data for analysis and reporting.
 4. **DynamoDB**: Logs processing information and error details for transparency and troubleshooting.
 5. **SNS**: Sends notifications to clients regarding processing updates and error alerts.
+![Design](design.png)
 
 ## Getting Started
 
