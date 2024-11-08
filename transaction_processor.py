@@ -15,9 +15,9 @@ except Exception as error:
 
 
 def summarize_transaction(transaction_data, file_name):
-    summary_data = {}
+    summary_data = {}        #keys: product name, values: tuple(quantity, amount, revenue)
     record_count = 0
-    transaction_items = transaction_data.strip().split('\n')
+    transaction_items = transaction_data.strip().split('\n')            #a list where each element is a string representing a transaction
     for transaction in transaction_items:
         record_count = record_count + 1
         product_name, quantity, amount, revenue = transaction.split(',')
