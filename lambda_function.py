@@ -18,7 +18,7 @@ except Exception as error:
 
 def lambda_handler(event, context):
     for record in event['Records']:
-
+        #Checks if the event source is from S3
         if record['eventSource'] != 'aws:s3':
             print('Trigger is not from s3. Skipping Processing')
             return
