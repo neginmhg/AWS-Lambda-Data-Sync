@@ -25,7 +25,7 @@ BUCKET_NAME=os.getenev("ERROR_BUCKET")
 
 
 @app.post("/api/transactions/upload")
-async def upload_transaction_file(file: UploadFile = File(...)):
+async def upload_transaction_file(file: UploadFile = File(...)):        #... means that this param is required
     try:
         # Upload the file to S3
         s3_client.upload_fileobj(file.file, BUCKET_NAME, file.filename)
