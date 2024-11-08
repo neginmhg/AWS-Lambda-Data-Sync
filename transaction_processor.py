@@ -48,7 +48,7 @@ def insert_to_rds(summarized_transaction):
     print("Obtaining database connection")
     connection = pymysql.connect(host=DATABASE_HOST, user=DATABASE_USER, passwd=DATABASE_PASSWORD, db=DATABASE_NAME)
 
-    with connection.cursor() as cursor:
+    with connection.cursor() as cursor:        #cursor is automatically closed after the block is executed, even if there are errors in the execution.
         print("Executing SQL query")
         cursor.execute(sql_query)
     connection.commit()
