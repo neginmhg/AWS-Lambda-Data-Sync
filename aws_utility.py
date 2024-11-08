@@ -6,7 +6,7 @@
 import boto3
 
 
-def delete_s3_file(bucket, key):
+def delete_s3_file(bucket, key):    #key (file path) of the object 
     try:
         s3_resource = boto3.resource('s3')
         s3_resource.Object(bucket, key).delete()
@@ -18,7 +18,7 @@ def get_file_from_s3(bucket_name, file_name, with_delete=False):
     try:
         s3 = boto3.client("s3")
         file_from_s3 = s3.get_object(Bucket=bucket_name, Key=file_name)
-        file_content = file_from_s3["Body"].read().decode('utf-8-sig')
+        file_content = file_from_s3["Body"].read().decode('utf-8-sig')    #decoded from UTF-8 with the utf-8-sig encoding, which helps handle files that may have a BOM (Byte Order Mark)
 
         if with_delete:
             delete_s3_file(bucket_name, file_name)
