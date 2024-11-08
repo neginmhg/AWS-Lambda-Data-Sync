@@ -31,7 +31,8 @@ def summarize_transaction(transaction_data, file_name):
     # Store data as [('egg', 5, 100, 10, 'my_file'), ('apple', 1, 200, 20, 'my_file')]
     summary_list = [(key, *value, file_name) for key, value in summary_data.items()]
 
-    return summary_list, record_count
+    return summary_list, record_count            #Tuple[List[Tuple[...]], int]
+
 
 
 def generate_sql_query(transaction_list):
