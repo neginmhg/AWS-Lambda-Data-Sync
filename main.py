@@ -1,8 +1,8 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
-import boto3
+import boto3        # AWS SDK
 import os
-import aws_utility
-import transaction_processor
+import aws_utility        #custom import
+import transaction_processor    #custom import
 from langchain import OpenAI
 import pymysql
 
