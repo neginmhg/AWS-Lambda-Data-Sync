@@ -17,6 +17,13 @@
 - **Notifications**: Sends client notifications about processing updates and errors via SNS.
 - **Logging**: Records processing information and error details in DynamoDB for auditing purposes.
 
+### Real-World Scenario: Marketplace Seller Transactions & Inventory Updates
+
+#### Problem
+Amazon’s marketplace allows third-party sellers to list their products alongside Amazon’s own inventory. These sellers often provide their own data feeds (in CSV or other formats) to update their product listings, sales, pricing, inventory levels, or transaction records. Manual data entry or outdated synchronization processes can lead to inaccuracies in inventory availability, incorrect pricing, and delays in fulfilling customer orders.
+
+To maintain real-time accuracy, Amazon needs to efficiently process these data feeds from thousands of sellers, aggregate transaction data, and keep inventory levels synchronized across its entire system.
+
 ---
 
 ## Project Architecture
